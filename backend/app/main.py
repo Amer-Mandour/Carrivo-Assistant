@@ -22,6 +22,7 @@ logger = logging.getLogger(__name__)
 async def lifespan(app: FastAPI):
     """Application lifecycle management"""
     logger.info("🚀 Starting Carrivo Assistant...")
+    logger.info(f"🌍 Environment: {settings.app_env}") # Debug Log
     
     # Check database connection
     try:
