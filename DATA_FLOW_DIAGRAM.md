@@ -5,13 +5,13 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │                         USER REQUEST                                │
-│              "عايز اتعلم ذكاء اصطناعي"                             │
+│              "I want to learn AI"                                     │
 └────────────────────────────┬────────────────────────────────────────┘
                              ↓
 ┌─────────────────────────────────────────────────────────────────────┐
 │                    Frontend (script.js)                             │
 │  POST /api/v1/chat                                                  │
-│  { message: "عايز اتعلم ذكاء اصطناعي", language: "auto" }          │
+│  { message: "I want to learn AI", language: "auto" }               │
 └────────────────────────────┬────────────────────────────────────────┘
                              ↓
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -103,7 +103,7 @@
 ┌─────────────────────────────────────────────────────────────────────┐
 │              Fuzzy Matching Algorithm                               │
 │  1. Expand query with synonyms                                      │
-│     "ذكاء اصطناعي" → ["ai", "ml", "data scientist", "mlops"]      │
+│     "Artificial Intelligence" → ["ai", "ml", "data scientist"]      │
 │  2. Get all roadmaps from database                                  │
 │  3. Calculate similarity for each:                                  │
 │     - Direct match: score = 1.0                                     │
@@ -129,8 +129,8 @@
 │              ChatService formats context                            │
 │  context = [                                                        │
 │    {                                                                │
-│      "question_ar": "ما هو مسار AI & Data Scientist؟",             │
-│      "answer_ar": "...\n\nالرابط: https://roadmap.sh/..."         │
+│      "question_ar": "What is the AI & Data Scientist roadmap?",      │
+│      "answer_ar": "...\n\nLink: https://roadmap.sh/..."             │
 │    }                                                                │
 │  ]                                                                  │
 └────────────────────────────┬────────────────────────────────────────┘
@@ -156,8 +156,8 @@
 ┌─────────────────────────────────────────────────────────────────────┐
 │                    RESPONSE TO USER                                 │
 │  {                                                                  │
-│    "response": "تمام! شخصيتك التحليلية تناسبك في الذكاء          │
-│                 الاصطناعي. هنا الرودماب: [link]",                │
+│    "response": "Great! Your analytical personality fits AI.        │
+│                 Here is the roadmap: [link]",                      │
 │    "session_id": "uuid",                                            │
 │    "user_language": "ar_EG",                                        │
 │    "is_egyptian": true,                                             │
