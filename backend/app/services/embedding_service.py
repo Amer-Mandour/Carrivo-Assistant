@@ -32,11 +32,21 @@ class EmbeddingService:
         if self._model is not None:
             return
 
+        # 🚀 PRODUCTION OPTIMIZATION: Skip loading heavy model on free tier servers
+        # Import settings here to avoid circular imports
+        from ..config import settings
+        if settings.app_env.lower() == "production":
+            logger.info("🚀 Production Environment: Skipping local embedding model to save RAM (512MB limit).")
+            logger.info("⚡ Using Fuzzy Search fallback instead.")
+            self._available = False
+            return
+
         self.model_name = "paraphrase-multilingual-MiniLM-L12-v2" 
         self.embedding_dim = 384
         self._available = False
         
         try:
+            # Lazy Import to save memory on startup
             from sentence_transformers import SentenceTransformer
             logger.info("📥 Loading embedding model (this may take a moment)...")
             self._model = SentenceTransformer(self.model_name)
