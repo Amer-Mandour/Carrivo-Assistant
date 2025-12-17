@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrivo Assistant</title>
+    <link rel="stylesheet" href="style.css?v=6">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo-icon">🤖</div>
+        <h1>Carrivo Assistant</h1>
+        <!-- Hidden status indicator as per design -->
+        <div class="status-indicator">
+            <span class="status-dot"></span>
+            <span>Connected</span>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <div class="chat-layout">
+
+            <!-- Chat Area -->
+            <main class="chat-area">
+                <div class="chat-messages" id="chatMessages">
+                    <!-- Welcome message will be added by JS -->
+                </div>
+
+                <div class="chat-input-container">
+                    <form class="chat-input-form" onsubmit="sendMessage(event)">
+                        <input type="text" id="messageInput" class="chat-input" placeholder="Type a message ..."
+                            autocomplete="off">
+                        <button type="submit" class="btn-send" id="sendButton">
+                            <span class="send-icon">➤</span>
+                        </button>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Hidden Elements for Logic -->
+    <div style="display:none;">
+        <span id="sessionId"></span>
+        <span id="messageCount"></span>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Processing...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
