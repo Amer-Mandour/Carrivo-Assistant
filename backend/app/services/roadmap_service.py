@@ -280,7 +280,7 @@ class RoadmapService:
                     cat_score = self._calculate_similarity(exp_query_clean, cat_clean)
                     max_score = max(max_score, title_score, desc_score, cat_score)
                 
-                if max_score > 0.15:  # Minimum threshold
+                if max_score > 0.4:  # Minimum threshold - increased to filter low-quality matches
                     scored_roadmaps.append({
                         **roadmap,
                         'similarity_score': max_score,
